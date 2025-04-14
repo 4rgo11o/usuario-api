@@ -58,7 +58,7 @@ Gera um token JWT com as credenciais do usuário.
 
 #### Respostas:
 - `200`: Usuário cadastrado com sucesso.
-- `401`: Requisição inválida ou dados duplicados (login, CPF, e-mail).
+- `401`: Credenciais inválidas.
 
 ---
 
@@ -106,7 +106,7 @@ Altera a senha do usuário autenticado.
 
 #### Respostas:
 - `200`: Senha alterada com sucesso.
-- `401`: Token ausente ou inválido.
+- `401`: Senha atual incorreta ou token ausente/inválido.
 
 
 ---
