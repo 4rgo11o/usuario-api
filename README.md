@@ -168,8 +168,8 @@ http://localhost:8080/swagger-ui/index.html
 ## 🚀 Como rodar o projeto localmente
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
+git clone https://github.com/4rgo11o/usuario-api.git
+cd usuario-api
 ./mvnw spring-boot:run
 ```
 
