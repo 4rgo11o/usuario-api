@@ -10,6 +10,7 @@ services:
 
   app:
     build: .
+    image: 4rgo11o/usuario-api:latest
     depends_on:
       - db
     environment:
