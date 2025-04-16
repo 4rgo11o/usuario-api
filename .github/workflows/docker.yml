@@ -32,11 +32,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-
-      - name: 🧱 Build da imagem Docker
+      - name: 🧱 Build da imagem Docker com Compose
         run: docker compose build
 
-      - name: 🚀 Push da imagem pro Docker Hub
-        run: |
-          docker tag usuario-api:latest ${{ secrets.DOCKERHUB_USERNAME }}/usuario-api:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/usuario-api:latest
+      - name: 🚀 Push da imagem para o Docker Hub
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/usuario-api:latest
