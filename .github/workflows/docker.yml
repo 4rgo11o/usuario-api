@@ -20,6 +20,9 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: 🔧 Dar permissão de execução ao mvnw
+        run: chmod +x ./mvnw
+
       - name: 📦 Build com Maven (sem testes)
         run: ./mvnw clean package -DskipTests
 
