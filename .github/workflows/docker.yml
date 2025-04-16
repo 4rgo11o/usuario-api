@@ -34,7 +34,7 @@ jobs:
 
 
       - name: 🧱 Build da imagem Docker
-        run: docker-compose build
+        run: docker compose build
 
       - name: 🚀 Push da imagem pro Docker Hub
         run: |
