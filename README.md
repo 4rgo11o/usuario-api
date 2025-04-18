@@ -143,7 +143,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias e bibliotecas:
 - **JWT (Auth0 Java JWT)**
 - **Spring Validation**
 - **Springdoc OpenAPI v2.8.6**
-- **H2 Database**
+- **Postgres**
 - **Lombok**
 
 ---
