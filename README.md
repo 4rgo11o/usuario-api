@@ -1,6 +1,6 @@
 # 🔐 API de Gestão de Usuários
 
-Esta API permite o gerenciamento de usuários(perfis cliente e/ou proprietario), incluindo cadastro, login, alteração de senha, atualização e exclusão.  
+Esta API permite o gerenciamento de usuários (perfis cliente e/ou proprietário), incluindo cadastro, login, alteração de senha, atualização e exclusão.  
 As rotas protegidas requerem autenticação via **JWT**.
 
 ---
@@ -57,7 +57,7 @@ Gera um token JWT com as credenciais do usuário.
 ```
 
 #### Respostas:
-- `200`: Usuário cadastrado com sucesso.
+- `200`: Usuário autenticado com sucesso.
 - `401`: Credenciais inválidas.
 
 ---
@@ -88,7 +88,6 @@ Permite ao usuário autenticado atualizar seus dados.
 - `400`: Dados inválidos.
 - `401`: Token ausente ou inválido.
 
-
 ---
 
 ### 🔑 PUT `/api/v1/usuarios/alterar-senha` – Alterar Senha
@@ -108,7 +107,6 @@ Altera a senha do usuário autenticado.
 - `200`: Senha alterada com sucesso.
 - `401`: Senha atual incorreta ou token ausente/inválido.
 
-
 ---
 
 ### ❌ DELETE `/api/v1/usuarios/deletar-usuario` – Deletar Conta
@@ -117,9 +115,8 @@ Deleta o usuário autenticado.
 🔒 Requer token JWT.
 
 #### Respostas:
-- `204`:  No Content – Usuário excluído com sucesso.
+- `204`: No Content – Usuário excluído com sucesso.
 - `401`: Token ausente ou inválido.
-
 
 ---
 
@@ -138,23 +135,24 @@ Authorization: Bearer seu_token_aqui
 Este projeto foi desenvolvido com as seguintes tecnologias e bibliotecas:
 
 ### ☕ Backend
-- **Java 21** – Linguagem principal da aplicação.
-- **Spring Boot 3.4.4** – Framework principal para criação de aplicações Java.
-- **Spring Web** – Para construção da API REST.
-- **Spring Data JPA** – Abstração da camada de persistência com suporte a JPA.
-- **Spring Security** – Segurança da API com autenticação baseada em JWT.
-- **JWT (com Auth0 Java JWT)** – Geração e validação de tokens para autenticação segura.
-- **Spring Validation** – Validação de dados recebidos na API.
-- **Springdoc OpenAPI v2.8.6** – Geração automática da documentação Swagger da API.
-- **H2 Database** – Banco de dados em memória utilizado para testes e desenvolvimento.
-- **Lombok** – Redução de boilerplate com geração automática de getters, setters, etc.
+- **Java 21**
+- **Spring Boot 3.4.4**
+- **Spring Web**
+- **Spring Data JPA**
+- **Spring Security**
+- **JWT (Auth0 Java JWT)**
+- **Spring Validation**
+- **Springdoc OpenAPI v2.8.6**
+- **H2 Database**
+- **Lombok**
 
 ---
 
 ### ⚙️ Build e Gerenciamento
-- **Maven** – Sistema de build e gerenciamento de dependências.
+- **Maven**
 
 ---
+
 ## 📚 Documentação interativa
 
 Acesse a interface do Swagger em:
@@ -165,12 +163,51 @@ http://localhost:8080/swagger-ui/index.html
 
 ---
 
-## 🚀 Como rodar o projeto localmente
+## 🚀 Como rodar o projeto com Docker
+
+### Pré-requisitos
+
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+
+### Passo a passo
+
+1. Crie um arquivo `docker-compose.yml` com o conteúdo abaixo:
+
+```yaml
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: usuario_db
+    ports:
+      - "5432:5432"
+
+  app:
+    image: 4rgo11o/usuario-api:latest
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/usuario_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    ports:
+      - "8080:8080"
+```
+
+2. Execute o comando:
 
 ```bash
-git clone https://github.com/4rgo11o/usuario-api.git
-cd usuario-api
-./mvnw spring-boot:run
+docker-compose up
+```
+
+3. A API estará acessível em:
+
+```
+http://localhost:8080
 ```
 
 ---
