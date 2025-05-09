@@ -167,44 +167,17 @@ http://localhost:8080/swagger-ui/index.html
 
 ### Pré-requisitos
 
-- [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 
 ### Passo a passo
 
-1. Crie um arquivo `docker-compose.yml` com o conteúdo abaixo:
-
-```yaml
-
-services:
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: usuario_db
-    ports:
-      - "5432:5432"
-
-  app:
-    image: 4rgo11o/usuario-api:latest
-    depends_on:
-      - db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/usuario_db
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
-    ports:
-      - "8080:8080"
-```
-
-2. Execute o comando:
+1.  Execute o comando:
 
 ```bash
 docker-compose up
 ```
 
-3. A API estará acessível em:
+2. A API estará acessível em:
 
 ```
 http://localhost:8080
