@@ -36,4 +36,4 @@ jobs:
         run: docker compose build
 
       - name: 🚀 Push da imagem para o Docker Hub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/usuario-api:latest
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/usuario-api:1
