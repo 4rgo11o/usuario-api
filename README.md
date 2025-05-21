@@ -163,6 +163,7 @@ http://localhost:8080/swagger-ui/index.html
 
 ---
 
+
 ## 🚀 Como rodar o projeto com Docker
 
 ### Pré-requisitos
@@ -184,6 +185,38 @@ http://localhost:8080
 ```
 
 ---
+
+## 🧪 Collection Postman para Teste
+
+Para facilitar o teste e a interação com a `usuario-api`, foi disponibilizada uma collection do Postman contendo os principais endpoints da aplicação.
+
+### Como Obter a Collection:
+
+Você pode baixar o arquivo da collection diretamente do repositório:
+
+[Baixar Collection Postman (usuario-api.postman_collection.json)](https://github.com/4rgo11o/usuario-api/blob/main/docs/usuario-api.postman_collection.json)
+
+
+### Como Importar a Collection:
+
+1.  **Abra o Postman.**
+2.  Clique no botão **"Import"** (Importar).
+3.  Na janela de importação, **arraste e solte** o arquivo `usuario-api.postman_collection.json` que você baixou.
+4.  Confirme a importação clicando em **"Import"**.
+
+### Descrição dos Testes Manuais:
+
+A collection está organizada para guiar o usuário através do fluxo de utilização da API:
+
+1.  **Criação de Usuário:**
+    * Utilize o endpoint `POST /api/v1/usuarios` para registrar um novo usuário com os dados fornecidos no corpo da requisição de exemplo.
+2.  **Autenticação (Login):**
+    * Após o cadastro, use `POST /api/v1/usuarios/login` para obter o token JWT. Este token será crucial para as próximas requisições.
+3.  **Operações Autenticadas:**
+    * **Importante:** Para as requisições `PUT /api/v1/usuarios/atualizar-usuario`, `PUT /api/v1/usuarios/alterar-senha` e `DELETE /api/v1/usuarios/deletar-usuario`, certifique-se de incluir o token JWT obtido no login no cabeçalho `Authorization` com o prefixo `Bearer` (ex: `Authorization: Bearer seu_token_aqui`).
+    * Teste a atualização de informações do usuário, a alteração de senha e, por fim, a exclusão da conta.
+
+Certifique-se de que a aplicação esteja em execução localmente (padrão: `http://localhost:8080`) antes de iniciar os testes.
 
 ## 📫 Contato
 
